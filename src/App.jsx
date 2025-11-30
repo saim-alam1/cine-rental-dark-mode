@@ -1,9 +1,16 @@
 import "./App.css";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 function App() {
   return (
     <>
-      <h1 className="text-7xl text-green-500">Vite + React</h1>
+      <Header />
+      <main>
+        <div class="container grid lg:grid-cols-[218px_1fr] gap-14">
+          <Sidebar />
+        </div>
+      </main>
     </>
   );
 }

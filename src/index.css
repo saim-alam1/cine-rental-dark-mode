@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #00d991;
+  --container-padding: 1.25rem;
+}
+
+@layer components {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    max-width: 1280px; /* feel free to adjust */
+  }
+}
