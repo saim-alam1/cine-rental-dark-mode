@@ -24,7 +24,10 @@ export default function MovieCard({ movie }) {
       )}
 
       <figure className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl">
-        <a href="#" onClick={() => handleMovieSelection(movie)}>
+        <button
+          onClick={() => handleMovieSelection(movie)}
+          className="cursor-pointer"
+        >
           <img
             className="w-full object-cover rounded-xs h-[400px]"
             src={getImgURL(movie.cover)}
@@ -44,7 +47,7 @@ export default function MovieCard({ movie }) {
               <span>${movie.price} | Add to Cart</span>
             </a>
           </figcaption>
-        </a>
+        </button>
       </figure>
     </>
   );
