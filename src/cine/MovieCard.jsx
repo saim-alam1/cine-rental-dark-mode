@@ -23,7 +23,7 @@ export default function MovieCard({ movie }) {
         <MovieDetailsModal movie={selectedMovie} onClose={handleModalClose} />
       )}
 
-      <figure className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl">
+      <figure className="p-4 border border-black/10 shadow-md dark:border-white/10 rounded-xl">
         <button
           onClick={() => handleMovieSelection(movie)}
           className="cursor-pointer"
