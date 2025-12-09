@@ -19,7 +19,7 @@ export default function CartDetails({ onClose }) {
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px] sm:max-w-[600px] lg:max-w-[790px] p-4 max-h-[90vh] overflow-auto">
         {/* in this div below there is a class "dark:bg-[#12141D]" use it during enabling dark mode */}
 
-        <div className="bg-white shadow-md  rounded-2xl overflow-hidden p-5 md:p-9">
+        <div className="bg-white shadow-md dark:bg-[#12141D] rounded-2xl overflow-hidden p-5 md:p-9">
           <h2 className="text-2xl lg:text-[30px] mb-10 font-bold">
             Your Carts
           </h2>
