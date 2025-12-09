@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-primary: #00d991;
@@ -9,31 +10,10 @@
   width: 380px;
 }
 
-/* @layer base {  */
-/* For Dark Mode */
-/* html.dark {
- --color-bg: #111827; dark background 
- --color-text: #f9fafb; light text 
- --color-primary: #00d991;
- } 
-For Light Mode
- html {
- --color-bg: #ffffff; light background
- --color-text: #111827; dark text 
- --color-primary: #00d991;
- }
-
-body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-}
-} */
-
 body {
   @apply bg-white text-black; /* light mode */
 }
 
-/* Dark mode using instructor style */
 .dark {
   @apply bg-[#171923] text-white;
 }
