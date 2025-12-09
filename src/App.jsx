@@ -1,28 +1,21 @@
 import { useState } from "react";
 import "./App.css";
-import MovieList from "./cine/MovieList";
-import { MovieContext } from "./contexts";
-import Footer from "./Footer";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
+import { MovieContext, ThemeContext } from "./contexts";
 import { ToastContainer } from "react-toastify";
+import Page from "./Page";
 
 function App() {
   const [cartData, setCartData] = useState([]);
+  const [darkMode, setDarkMode] = useState(true);
+
   return (
     <>
-      {/* <MovieContext.Provider value={(cartData, setCartData)}> */}
-      <MovieContext.Provider value={{ cartData, setCartData }}>
-        <Header />
-        <main>
-          <div className="container grid lg:grid-cols-[218px_1fr] gap-14">
-            <Sidebar />
-            <MovieList />
-          </div>
-        </main>
-        <Footer />
-        <ToastContainer />
-      </MovieContext.Provider>
+      <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+        <MovieContext.Provider value={{ cartData, setCartData }}>
+          <Page />
+          <ToastContainer />
+        </MovieContext.Provider>
+      </ThemeContext.Provider>
     </>
   );
 }
