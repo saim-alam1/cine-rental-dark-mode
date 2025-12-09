@@ -2,11 +2,15 @@ import logo from "./assets/svgs/logo.svg";
 import ring from "./assets/svgs/ring.svg";
 import moonImg from "./assets/icons/moon.svg";
 import shoppingCart from "./assets/svgs/shopping-cart.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CartDetails from "./cine/CartDetails";
+import { MovieContext } from "./contexts";
 
 export default function Header() {
   const [showCart, setShowCart] = useState(false);
+  const { cartData } = useContext(MovieContext);
+
+  console.log(cartData);
 
   const handleCartShow = () => {
     setShowCart(true);
@@ -42,6 +46,11 @@ export default function Header() {
                 height="24"
                 alt="Shopping Cart"
               />
+              {cartData.length > 0 && (
+                <span className="rounded-full absolute -top-3 left-7 bg-[#12cf6f] text-white text-center p-0.5 w-[30px] h-[30px] font-semibold">
+                  {cartData.length}
+                </span>
+              )}
             </button>
           </li>
         </ul>

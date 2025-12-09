@@ -5,6 +5,10 @@
   --container-padding: 1.25rem;
 }
 
+.my-toast {
+  width: 380px;
+}
+
 @layer components {
   .container {
     margin-left: auto;
