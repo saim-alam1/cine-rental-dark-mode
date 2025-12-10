@@ -5,13 +5,15 @@ import { MovieContext } from "../contexts";
 import { getImgURL } from "../utils/cine-utility";
 
 export default function CartDetails({ onClose }) {
-  const { cartData, setCartData } = useContext(MovieContext);
-  console.log(cartData);
+  const { state, dispatch } = useContext(MovieContext);
+  console.log(state.cartData);
 
-  const handleDeleteCart = (event, itemId) => {
+  const handleDeleteCart = (event, item) => {
     event.preventDefault();
-    const filteredItem = cartData.filter((item) => item.id !== itemId);
-    setCartData([...filteredItem]);
+    dispatch({
+      type: "REMOVE_FROM_CART",
+      payload: item,
+    });
   };
 
   return (
@@ -22,12 +24,12 @@ export default function CartDetails({ onClose }) {
             Your Carts
           </h2>
           <div className="space-y-8 lg:space-y-12 max-h-[450px] overflow-auto mb-10 lg:mb-14">
-            {cartData.length === 0 ? (
+            {state.cartData.length === 0 ? (
               <p className="text-3xl text-center font-semibold">
                 The Cart Is Empty
               </p>
             ) : (
-              cartData.map((item) => (
+              state.cartData.map((item) => (
                 <div className="grid grid-cols-[1fr_auto] gap-4" key={item.id}>
                   <div className="flex items-center gap-4">
                     <img
@@ -50,7 +52,7 @@ export default function CartDetails({ onClose }) {
                   <div className="flex justify-between gap-4 items-center">
                     <button
                       className="bg-[#D42967] rounded-md p-2 md:px-4 inline-flex items-center space-x-2 text-white cursor-pointer"
-                      onClick={() => handleDeleteCart(event, item.id)}
+                      onClick={() => handleDeleteCart(event, item)}
                     >
                       <img
                         className="w-5 h-5"
