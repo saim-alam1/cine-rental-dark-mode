@@ -35,9 +35,11 @@ export default function MovieCard({ movie }) {
           ...movie,
         },
       });
+      toast.success(`Movie ${movie.title} added successfully`, {
+        className: "my-toast",
+      });
     } else {
-      console.error(`The movie ${movie.title} has added to the cart already`);
-      toast.error(`The movie "${movie.title}" is already in the cart!`, {
+      toast.error(`Movie "${movie.title}" is already in the cart!`, {
         className: "my-toast",
       });
     }
@@ -66,11 +68,11 @@ export default function MovieCard({ movie }) {
           <figcaption className="pt-4">
             <h3 className="text-xl mb-1">{movie.title}</h3>
             <p className="text-[#575A6E] text-sm mb-2">{movie.genre}</p>
-            <div className="flex items-center space-x-1 mb-5">
+            <div className="flex items-center justify-center space-x-1 mb-5">
               <Rating value={movie.rating} />
             </div>
             <button
-              className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm"
+              className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm cursor-pointer w-full"
               onClick={(e) => handleAddToCart(e, movie)}
             >
               <img src="./assets/tag.svg" alt="" />
