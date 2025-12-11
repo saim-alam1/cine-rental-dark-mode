@@ -56,7 +56,7 @@ export default function MovieCard({ movie }) {
       )}
 
       <figure className="p-4 border border-black/10 shadow-md dark:border-white/10 rounded-xl">
-        <button
+        <div
           onClick={() => handleMovieSelection(movie)}
           className="cursor-pointer"
         >
@@ -79,7 +79,7 @@ export default function MovieCard({ movie }) {
               <span>${movie.price} | Add to Cart</span>
             </button>
           </figcaption>
-        </button>
+        </div>
       </figure>
     </>
   );
